@@ -232,6 +232,114 @@ export async function getCitiesWithCounts() {
     .sort((a, b) => b.doctorCount - a.doctorCount);
 }
 
+export async function searchDoctors(query: string): Promise<Doctor[]> {
+  if (!supabase) {
+    const q = query.toLowerCase();
+    return MOCK_DOCTORS.filter(
+      (d) =>
+        (d.first_name && d.first_name.toLowerCase().includes(q)) ||
+        (d.last_name && d.last_name.toLowerCase().includes(q)) ||
+        (d.original_name && d.original_name.toLowerCase().includes(q)) ||
+        d.city.toLowerCase().includes(q)
+    );
+  }
+
+  const { data } = await supabase
+    .from("doctors")
+    .select("*, specialty:specialties(*)")
+    .or(
+      `first_name.ilike.%${query}%,last_name.ilike.%${query}%,original_name.ilike.%${query}%,city.ilike.%${query}%`
+    )
+    .order("rating_avg", { ascending: false })
+    .limit(50);
+
+  return (data as Doctor[]) || [];
+}
+
+export async function getSpecialtyBySlug(slug: string): Promise<Specialty | null> {
+  if (!supabase) {
+    return MOCK_SPECIALTIES.find((s) => s.slug === slug) || null;
+  }
+
+  const { data, error } = await supabase
+    .from("specialties")
+    .select("*")
+    .eq("slug", slug)
+    .single();
+
+  if (error) return null;
+  return data as Specialty;
+}
+
+export async function getDoctorsBySpecialty(specialtyId: string): Promise<Doctor[]> {
+  if (!supabase) {
+    return MOCK_DOCTORS.filter((d) => d.specialty_id === specialtyId)
+      .sort((a, b) => (b.rating_avg || 0) - (a.rating_avg || 0));
+  }
+
+  const { data } = await supabase
+    .from("doctors")
+    .select("*, specialty:specialties(*)")
+    .eq("specialty_id", specialtyId)
+    .order("rating_avg", { ascending: false });
+
+  return (data as Doctor[]) || [];
+}
+
+export async function getSpecialtiesForCity(city: string): Promise<Specialty[]> {
+  if (!supabase) {
+    const specialtyIds = new Set(
+      MOCK_DOCTORS.filter((d) => d.city.toLowerCase() === city.toLowerCase())
+        .map((d) => d.specialty_id)
+        .filter(Boolean)
+    );
+    return MOCK_SPECIALTIES.filter((s) => specialtyIds.has(s.id));
+  }
+
+  const { data: doctors } = await supabase
+    .from("doctors")
+    .select("specialty_id")
+    .ilike("city", city)
+    .not("specialty_id", "is", null);
+
+  if (!doctors) return [];
+
+  const ids = [...new Set(doctors.map((d) => d.specialty_id))];
+  const { data } = await supabase
+    .from("specialties")
+    .select("*")
+    .in("id", ids);
+
+  return (data as Specialty[]) || [];
+}
+
+export async function getDoctorsByCityAndSpecialty(
+  city: string,
+  specialtySlug: string
+): Promise<Doctor[]> {
+  if (!supabase) {
+    const spec = MOCK_SPECIALTIES.find((s) => s.slug === specialtySlug);
+    if (!spec) return [];
+    return MOCK_DOCTORS.filter(
+      (d) =>
+        d.city.toLowerCase() === city.toLowerCase() &&
+        d.specialty_id === spec.id
+    );
+  }
+
+  const specResult = await getSpecialtyBySlug(specialtySlug);
+  if (!specResult) return [];
+
+  const { data } = await supabase
+    .from("doctors")
+    .select("*, specialty:specialties(*)")
+    .ilike("city", city)
+    .eq("specialty_id", specResult.id)
+    .order("rating_avg", { ascending: false });
+
+  return (data as Doctor[]) || [];
+}
+
 export async function getDoctorsByCity(city: string): Promise<Doctor[]> {
   if (!supabase) {
     return MOCK_DOCTORS.filter(

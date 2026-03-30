@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/routing';
 import { searchDoctors } from '@/lib/supabase';
-import { DoctorCard } from '@/components/DoctorCard';
+import DoctorCard from '@/components/DoctorCard';
 import { Search } from 'lucide-react';
 
 export const metadata: Metadata = {
