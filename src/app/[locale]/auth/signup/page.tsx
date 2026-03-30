@@ -48,6 +48,10 @@ export default function SignUpPage() {
     setLoading(true);
 
     try {
+      if (!supabase) {
+        setError('Authentication not configured');
+        return;
+      }
       const { error } = await supabase.auth.signUp({
         email,
         password,
@@ -81,6 +85,10 @@ export default function SignUpPage() {
     setLoading(true);
 
     try {
+      if (!supabase) {
+        setError('Authentication not configured');
+        return;
+      }
       const { error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
         options: {
@@ -92,7 +100,7 @@ export default function SignUpPage() {
         setError(error.message);
       }
     } catch (err) {
-      setError(t('auth.signUpFailed'));
+      setError('Sign up failed');
     } finally {
       setLoading(false);
     }

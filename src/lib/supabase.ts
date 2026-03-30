@@ -34,8 +34,8 @@ export async function getDoctors(
       const q = search.toLowerCase();
       results = results.filter(
         (d) =>
-          d.first_name.toLowerCase().includes(q) ||
-          d.last_name.toLowerCase().includes(q) ||
+          (d.first_name && d.first_name.toLowerCase().includes(q)) ||
+          (d.last_name && d.last_name.toLowerCase().includes(q)) ||
           (d.original_name && d.original_name.toLowerCase().includes(q))
       );
     }
@@ -49,7 +49,7 @@ export async function getDoctors(
         break;
       case "name":
       default:
-        results.sort((a, b) => a.last_name.localeCompare(b.last_name));
+        results.sort((a, b) => (a.last_name || '').localeCompare(b.last_name || ''));
     }
 
     const from = (page - 1) * limit;

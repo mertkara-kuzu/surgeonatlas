@@ -21,6 +21,10 @@ export default function LoginPage() {
     setLoading(true);
 
     try {
+      if (!supabase) {
+        setError('Authentication not configured');
+        return;
+      }
       const { error } = await supabase.auth.signInWithPassword({
         email,
         password,
@@ -32,7 +36,7 @@ export default function LoginPage() {
         router.push('/');
       }
     } catch (err) {
-      setError(t('auth.loginFailed'));
+      setError('Login failed');
     } finally {
       setLoading(false);
     }
@@ -43,6 +47,10 @@ export default function LoginPage() {
     setLoading(true);
 
     try {
+      if (!supabase) {
+        setError('Authentication not configured');
+        return;
+      }
       const { error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
         options: {
@@ -54,7 +62,7 @@ export default function LoginPage() {
         setError(error.message);
       }
     } catch (err) {
-      setError(t('auth.loginFailed'));
+      setError('Login failed');
     } finally {
       setLoading(false);
     }

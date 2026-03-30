@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
 import { Doctor } from '@/lib/types';
-import { DoctorCard } from '@/components/DoctorCard';
+import DoctorCard from '@/components/DoctorCard';
 import { Send, Loader } from 'lucide-react';
 
 interface Message {
@@ -140,7 +140,7 @@ export default function FindSurgeonPage() {
                             {doctor.last_name}
                           </div>
                           <div className="text-xs text-gray-600 mt-1">
-                            {doctor.specialty}
+                            {doctor.specialty?.name_en || ''}
                           </div>
                           {doctor.city && (
                             <div className="text-xs text-gray-600">

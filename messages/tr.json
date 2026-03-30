@@ -25,7 +25,9 @@
     "filters": "Filtreler",
     "sortBy": "Siralama",
     "share": "Paylas",
-    "contact": "Iletisim"
+    "contact": "Iletisim",
+    "browseDoctors": "Tum Doktorlari Goruntule",
+    "backHome": "Ana Sayfaya Don"
   },
   "nav": {
     "home": "Ana Sayfa",
@@ -50,7 +52,7 @@
     "benefit3Title": "Gercek Degerlendirmeler",
     "benefit3Desc": "Hasta yorumlariyla guvenilir karar verin.",
     "ctaTitle": "Dogru Doktoru Bulmakta Zorlaniyorsunuz?",
-    "ctaSubtitle": "AI destekli doktor bulucu ile ihtiyaciniza en uygun cerrahı saniyeler icinde kesfedın.",
+    "ctaSubtitle": "AI destekli doktor bulucu ile ihtiyaciniza en uygun cerrahi saniyeler icinde kesfedin.",
     "ctaButton": "AI Doktor Bulucu'yu Dene"
   },
   "doctors": {
@@ -74,17 +76,42 @@
     "claimProfile": "Bu profil size mi ait?",
     "claimButton": "Profilini Talep Et"
   },
+  "search": {
+    "title": "Arama Sonuclari",
+    "subtitle": "Doktor, uzmanlik veya sehir arayin",
+    "resultsFor": "\"{query}\" icin sonuclar",
+    "placeholder": "Doktor adi, uzmanlik veya sehir arayin...",
+    "enterQuery": "Doktor bulmak icin bir arama terimi girin",
+    "noResults": "\"{query}\" icin sonuc bulunamadi",
+    "tryAI": "AI Doktor Bulucu'yu Dene",
+    "foundResults": "{count} sonuc bulundu"
+  },
   "findSurgeon": {
     "title": "AI Doktor Bulucu",
     "subtitle": "Ihtiyaclarinizi anlatin, size en uygun doktorlari bulalim.",
     "placeholder": "Ornegin: Istanbul'da burun estetigi yaptirmak istiyorum...",
+    "inputPlaceholder": "Ihtiyaclarinizi anlatin...",
     "send": "Gonder",
     "thinking": "Dusunuyor...",
-    "disclaimer": "Bu bir oneri sistemidir, tibbi tavsiye degildir. Lutfen doktorunuza danisin."
+    "greeting": "Merhaba! Ben SurgeonAtlas AI asistaniyim. Aradiginiz cerrah veya tibbi islem hakkinda bilgi verin, size en uygun eslestirmeyi bulayim.",
+    "error": "Uzgunuz, bir hata olustu. Lutfen tekrar deneyin.",
+    "disclaimer": "Bu bir oneri sistemidir, tibbi tavsiye degildir. Lutfen doktorunuza danisin.",
+    "disclaimerTitle": "Onemli Bilgilendirme",
+    "disclaimerText": "Bu AI asistan yalnizca oneriler sunar ve profesyonel tibbi tavsiyenin yerini almaz. Her zaman uzman bir saglik profesyoneline danisin.",
+    "browseDoctors": "Doktorlari Incele",
+    "browseAllDoctors": "Dizinimizdeki tum doktorlari gorun",
+    "bySpecialty": "Uzmanliga Gore",
+    "browseBySpecialty": "Tibbi uzmanliga gore doktor bulun",
+    "byLocation": "Konuma Gore",
+    "browseByLocation": "Turkiye'de sehre gore doktor bulun"
+  },
+  "specialties": {
+    "title": "Tibbi Uzmanliklar",
+    "subtitle": "Uzmanlik alanina gore doktorlari inceleyin"
   },
   "auth": {
-    "loginTitle": "Giris Yap",
-    "signupTitle": "Kayit Ol",
+    "login": "Giris Yap",
+    "signUp": "Kayit Ol",
     "email": "E-posta",
     "password": "Sifre",
     "confirmPassword": "Sifre Tekrar",
@@ -94,7 +121,26 @@
     "googleLogin": "Google ile Giris Yap",
     "noAccount": "Hesabiniz yok mu?",
     "hasAccount": "Zaten hesabiniz var mi?",
-    "forgotPassword": "Sifremi Unuttum"
+    "haveAccount": "Zaten hesabiniz var mi?",
+    "forgotPassword": "Sifremi Unuttum",
+    "welcomeBack": "SurgeonAtlas'a tekrar hosgeldiniz",
+    "joinUs": "Baslamak icin hesabinizi olusturun",
+    "emailPlaceholder": "E-posta adresinizi girin",
+    "passwordPlaceholder": "Sifrenizi girin",
+    "confirmPasswordPlaceholder": "Sifrenizi tekrar girin",
+    "rememberMe": "Beni hatirla",
+    "loginFailed": "Giris basarisiz. Lutfen tekrar deneyin.",
+    "signUpFailed": "Kayit basarisiz. Lutfen tekrar deneyin.",
+    "signUpSuccess": "Hesap olusturuldu! Giris sayfasina yonlendiriliyorsunuz...",
+    "fillAllFields": "Lutfen tum alanlari doldurun",
+    "passwordTooShort": "Sifre en az 6 karakter olmalidir",
+    "passwordsDoNotMatch": "Sifreler eslesmedi",
+    "passwordHint": "En az 6 karakter olmalidir",
+    "agreeToTerms": "Kabul ediyorum",
+    "termsOfService": "Kullanim Sartlari",
+    "loginWithGoogle": "Google ile Giris Yap",
+    "signUpWithGoogle": "Google ile Kayit Ol",
+    "or": "veya"
   },
   "footer": {
     "description": "Turkiye'nin en kapsamli doktor ve cerrah rehberi. Saglik Bakanligi verileriyle desteklenmektedir.",

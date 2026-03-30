@@ -25,7 +25,9 @@
     "filters": "Filters",
     "sortBy": "Sort by",
     "share": "Share",
-    "contact": "Contact"
+    "contact": "Contact",
+    "browseDoctors": "Browse All Doctors",
+    "backHome": "Back to Home"
   },
   "nav": {
     "home": "Home",
@@ -74,17 +76,42 @@
     "claimProfile": "Is this your profile?",
     "claimButton": "Claim Your Profile"
   },
+  "search": {
+    "title": "Search Results",
+    "subtitle": "Search for doctors, specialties, or cities",
+    "resultsFor": "Results for \"{query}\"",
+    "placeholder": "Search by doctor name, specialty, or city...",
+    "enterQuery": "Enter a search term to find doctors",
+    "noResults": "No results found for \"{query}\"",
+    "tryAI": "Try AI Surgeon Finder",
+    "foundResults": "{count} results found"
+  },
   "findSurgeon": {
     "title": "AI Surgeon Finder",
     "subtitle": "Describe what you need and we'll find the best doctors for you.",
     "placeholder": "E.g., I'm looking for rhinoplasty in Istanbul, budget around $3000...",
+    "inputPlaceholder": "Describe your needs...",
     "send": "Send",
     "thinking": "Thinking...",
-    "disclaimer": "This is a recommendation system, not medical advice. Please consult with your doctor."
+    "greeting": "Hello! I'm the SurgeonAtlas AI assistant. Tell me what kind of surgeon or medical procedure you're looking for, and I'll help you find the best match.",
+    "error": "Sorry, something went wrong. Please try again.",
+    "disclaimer": "This is a recommendation system, not medical advice. Please consult with your doctor.",
+    "disclaimerTitle": "Important Notice",
+    "disclaimerText": "This AI assistant provides recommendations only and does not replace professional medical advice. Always consult with a qualified healthcare provider.",
+    "browseDoctors": "Browse Doctors",
+    "browseAllDoctors": "See all doctors in our directory",
+    "bySpecialty": "By Specialty",
+    "browseBySpecialty": "Find doctors by medical specialty",
+    "byLocation": "By Location",
+    "browseByLocation": "Find doctors by city in Turkey"
+  },
+  "specialties": {
+    "title": "Medical Specialties",
+    "subtitle": "Browse doctors by their area of expertise"
   },
   "auth": {
-    "loginTitle": "Log In",
-    "signupTitle": "Sign Up",
+    "login": "Log In",
+    "signUp": "Sign Up",
     "email": "Email",
     "password": "Password",
     "confirmPassword": "Confirm Password",
@@ -94,7 +121,26 @@
     "googleLogin": "Continue with Google",
     "noAccount": "Don't have an account?",
     "hasAccount": "Already have an account?",
-    "forgotPassword": "Forgot Password"
+    "haveAccount": "Already have an account?",
+    "forgotPassword": "Forgot Password",
+    "welcomeBack": "Welcome back to SurgeonAtlas",
+    "joinUs": "Create your account to get started",
+    "emailPlaceholder": "Enter your email",
+    "passwordPlaceholder": "Enter your password",
+    "confirmPasswordPlaceholder": "Confirm your password",
+    "rememberMe": "Remember me",
+    "loginFailed": "Login failed. Please try again.",
+    "signUpFailed": "Sign up failed. Please try again.",
+    "signUpSuccess": "Account created! Redirecting to login...",
+    "fillAllFields": "Please fill in all fields",
+    "passwordTooShort": "Password must be at least 6 characters",
+    "passwordsDoNotMatch": "Passwords do not match",
+    "passwordHint": "Must be at least 6 characters",
+    "agreeToTerms": "I agree to the",
+    "termsOfService": "Terms of Service",
+    "loginWithGoogle": "Continue with Google",
+    "signUpWithGoogle": "Sign up with Google",
+    "or": "or"
   },
   "footer": {
     "description": "Turkey's most comprehensive doctor and surgeon directory. Backed by Ministry of Health data.",
